@@ -1,0 +1,69 @@
+{
+    "swagger":"2.0",
+    "info":{
+        "version":"1.0.0",
+        "description":"API for E-Comm app",
+        "title":"E-comm API"
+    },
+    "host":"localhost:3200",
+    "securityDefinition":{
+        "JWT":{
+            "in":"header",
+            "name":"Authorization",
+            "type":"apiKey"
+        }
+    },
+    "paths":{
+        "api/products":{
+            "post":{
+                "summary":"login",
+                "description":"user login to get token",
+                "security":[{"JWT":{}}],
+                "responses":{
+                    "200":{
+                        "description":"ok"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    }
+                }
+            }
+        },
+
+ 
+        "api/users/signin":{
+            "post":{
+                "summary":"login",
+                "description":"user login to get token",
+                "parameters":[
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"user credentials",
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type":"string"
+                                }
+                                
+                            }
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"ok"
+                    },
+                    "400":{
+                        "description":"Incorrect credentials"
+                    }
+                }
+            }
+        }
+
+    }
+}
